@@ -8,7 +8,7 @@
     </a> -->
     <div class="guide_item" @click="goto('/msite')" :class="{on: isCurrent('/msite')}">
     <span class="item_icon">
-    <i class="iconfont icon-food"></i>
+    <i class="iconfont icon-waimai"></i>
     </span>
       <span>首页</span>
     </div>
@@ -20,13 +20,13 @@
     </div>
     <div class="guide_item" @click="goto('/order')" :class="{on: isCurrent('/order')}">
     <span class="item_icon">
-    <i class="iconfont icon-single"></i>
+    <i class="iconfont icon-dingdan"></i>
     </span>
       <span>订单</span>
     </div>
     <div class="guide_item" @click="goto('/profile')" :class="{on: isCurrent('/profile')}">
     <span class="item_icon">
-    <i class="iconfont icon-user"></i>
+    <i class="iconfont icon-geren"></i>
     </span>
       <span>我的</span>
     </div>

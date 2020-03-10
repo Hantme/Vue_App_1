@@ -7,12 +7,12 @@
           <i class="iconfont icon-person"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
+          <p class="user-info-top" v-if="!userInfo.phone">{{userInfo._id || '登录/注册'}}</p>
           <p>
                 <span class="user-icon">
                   <i class="iconfont icon-msnui-tel icon-mobile"></i>
                 </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{userInfo.phone || '暂无绑定手机号'}}</span>
           </p>
         </div>
         <span class="arrow">
@@ -73,9 +73,6 @@
               </span>
         </div>
       </a>
-    </section>
-    <section class="profile_my_order border-1px">
-      <!-- 服务中心 -->
       <a href="javascript:" class="my_order">
             <span>
               <i class="iconfont icon-fuwu"></i>
@@ -88,11 +85,18 @@
         </div>
       </a>
     </section>
+    <section class="profile_my_order border-1px">
+      <!-- 服务中心 -->
+    </section>
   </section>
 </template>
 <script>
+import {mapState} from 'vuex'
 import HeaderTop from '../../components/HeaderTop/HeaderTop'
 export default {
+  computed: {
+    ...mapState(['userInfo'])
+  },
   components: {HeaderTop}
 }
 </script>
@@ -308,4 +312,6 @@ export default {
             .icon-jiantou1
               color #bbb
               font-size 10px
+              position: absolute
+              right: 10px
 </style>

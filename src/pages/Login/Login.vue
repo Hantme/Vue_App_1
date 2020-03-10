@@ -41,7 +41,8 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="http://localhost:4000/captcha" alt="captcha" @click="getCaptcha" ref="captcha">
+                <img class="get_verification" src="http://localhost:4000/captcha" alt="captcha"
+                     @click="getCaptcha" ref="captcha">
               </section>
             </section>
           </div>
@@ -145,6 +146,7 @@ export default {
       if (result.code === 0) {
         const user = result.data
         // 保存user 到vuex
+        this.$store.dispatch('recordUser', user)
         this.$router.replace('/profile')
       } else {
         this.getCaptcha()
