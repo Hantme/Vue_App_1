@@ -3,6 +3,9 @@ import App from './App.vue'
 import FastClick from 'fastclick'
 import router from './router'
 import store from './store'
+import {Button} from 'mint-ui'
+
+Vue.component(Button.name, Button) // <mt-button>
 
 FastClick.attach(document.body)
 // eslint-disable-next-line no-new
