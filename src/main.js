@@ -5,6 +5,8 @@ import router from './router'
 import store from './store'
 import {Button} from 'mint-ui'
 
+import './mock/mockServer'
+
 Vue.component(Button.name, Button) // <mt-button>
 
 FastClick.attach(document.body)
