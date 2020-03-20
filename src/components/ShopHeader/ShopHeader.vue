@@ -18,9 +18,7 @@
         <div class="shop-message">
           <span class="shop-message-detail">{{info.score}}</span>
           <span class="shop-message-detail">月售{{info.sellCount}}单</span>
-          <span class="shop-message-detail">
-            {{info.description}} 约{{info.deliveryTime}}分钟
-          </span>
+          <span class="shop-message-detail">{{info.description}} 约{{info.deliveryTime}}分钟</span>
           <span class="shop-message-detail">距离{{info.distance}}</span>
         </div>
       </div>
