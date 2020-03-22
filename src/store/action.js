@@ -13,7 +13,8 @@ import {
   INCREMENT_FOOD_COUNT,
   DECREMENT_FOOD_COUNT,
   CLEAR_CART,
-  RECEIVE_SEARCH_SHOPS
+  RECEIVE_SEARCH_SHOPS,
+  CLEAR_SEARCH
 } from './mutation-types'
 import {
   reqAddress,
@@ -138,5 +139,9 @@ export default {
       const searchShops = result.data
       commit(RECEIVE_SEARCH_SHOPS, {searchShops})
     }
+  },
+
+  clearSearch ({commit}) {
+    commit(CLEAR_SEARCH)
   }
 }

@@ -10,7 +10,7 @@ import {
   RESET_USER_INFO,
   RECEIVE_INFO,
   RECEIVE_RATINGS,
-  RECEIVE_GOODS, INCREMENT_FOOD_COUNT, DECREMENT_FOOD_COUNT
+  RECEIVE_GOODS, INCREMENT_FOOD_COUNT, DECREMENT_FOOD_COUNT, CLEAR_CART, RECEIVE_SEARCH_SHOPS, CLEAR_SEARCH
 } from './mutation-types'
 
 export default {
@@ -63,5 +63,16 @@ export default {
     if (food.count === 0) {
       state.cartFoods.splice(state.cartFoods.indexOf(food), 1)
     }
+  },
+  [CLEAR_CART] (state) {
+    state.cartFoods.forEach(function (food) { food.count = 0 })
+    // 清除数组不够，count也要清除
+    state.cartFoods = []
+  },
+  [RECEIVE_SEARCH_SHOPS] (state, {searchShops}) {
+    state.searchShops = searchShops
+  },
+  [CLEAR_SEARCH] (state) {
+    state.searchShops = []
   }
 }

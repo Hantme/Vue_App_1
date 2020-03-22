@@ -6,30 +6,39 @@
     </span>
     <span>外卖</span>
     </a> -->
-    <div class="guide_item" @click="goto('/msite')" :class="{on: isCurrent('/msite')}">
-    <span class="item_icon">
-    <i class="iconfont icon-waimai"></i>
-    </span>
-      <span>首页</span>
-    </div>
-    <div class="guide_item" @click="goto('/search')" :class="{on: isCurrent('/search')}">
-    <span class="item_icon">
-    <i class="iconfont icon-search"></i>
-    </span>
+        <div class="guide_item" @click="goto('/msite')" :class="{on: isCurrent('/msite')}">
+        <span class="item_icon">
+        <i class="iconfont icon-waimai"></i>
+        </span>
+          <span>首页</span>
+        </div>
+<!--    <router-link to="/msite" replace class="guide_item" :class="{on: isCurrent('/msite')}">-->
+<!--      <span class="item_icon">-->
+<!--        <i class="iconfont icon-waimai"></i>-->
+<!--      </span>-->
+<!--    <span>首页</span>-->
+<!--  </router-link>-->
+
+    <router-link class="guide_item" replace to="/search" :class="{on: isCurrent('/search')}">
+      <span class="item_icon">
+        <i class="iconfont icon-search"></i>
+      </span>
       <span>搜索</span>
-    </div>
-    <div class="guide_item" @click="goto('/order')" :class="{on: isCurrent('/order')}">
+    </router-link>
+
+    <router-link class="guide_item" replace to="/order" :class="{on: isCurrent('/order')}">
     <span class="item_icon">
     <i class="iconfont icon-dingdan"></i>
     </span>
       <span>订单</span>
-    </div>
-    <div class="guide_item" @click="goto('/profile')" :class="{on: isCurrent('/profile')}">
+    </router-link>
+
+    <router-link class="guide_item" replace to="/profile" :class="{on: isCurrent('/profile')}">
     <span class="item_icon">
     <i class="iconfont icon-geren"></i>
     </span>
       <span>我的</span>
-    </div>
+    </router-link>
   </footer>
 </template>
 
@@ -38,8 +47,8 @@ export default {
   name: 'FooterGuide',
   methods: {
     goto (path) {
-      this.$router.replace(path)
-    },
+      this.$router.push(path)
+    }, // 弃用
     isCurrent (path) {
       // console.log(this.$route.path)
       return this.$route.path === path
@@ -63,6 +72,7 @@ export default {
     width 100%
     height 50px
     display flex
+
     .guide_item
       display flex
       flex 1
@@ -71,12 +81,15 @@ export default {
       align-items center
       margin 5px
       color #999999
+
       &.on
         color #02a774
+
       span
         font-size 12px
         margin-top 2px
         margin-bottom 2px
+
         .iconfont
           font-size 22px
 </style>
